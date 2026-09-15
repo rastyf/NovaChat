@@ -56,7 +56,7 @@
     50% { transform: translate(40px, -30px) scale(1.1); }
   }
 
-  /* === ПОДПИСЬ cat0687 (кликабельная, очень незаметная) === */
+  /* === ПОДПИСЬ cat0687 === */
   .signature {
     position: fixed;
     bottom: 12px;
@@ -853,45 +853,6 @@
   }
   .download-info span { display: flex; align-items: center; gap: 6px; }
 
-  .hash {
-    margin-top: 22px;
-    font-size: 11px;
-    color: #5a6378;
-    font-family: 'Courier New', monospace;
-    word-break: break-all;
-    padding: 12px 16px;
-    background: rgba(0,0,0,0.25);
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-
-  /* === QR-БЛОК === */
-  .qr-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 36px;
-    padding: 24px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 20px;
-    text-align: left;
-    flex-wrap: wrap;
-  }
-
-  .qr-block h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
-  .qr-block p { color: #8e99b5; font-size: 13.5px; margin: 0; }
-
-  .qr-block img {
-    width: 120px;
-    height: 120px;
-    border-radius: 12px;
-    background: #fff;
-    padding: 6px;
-    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.5);
-  }
-
   /* === ФУТЕР === */
   footer {
     position: relative;
@@ -1050,7 +1011,6 @@
     .download-card { padding: 44px 24px; }
     .download-btn { padding: 16px 24px; }
     .dl-icon { width: 40px; height: 40px; font-size: 19px; }
-    .qr-block { flex-direction: column; text-align: center; }
     .lightbox-content { padding: 50px 30px; font-size: 16px; }
     .signature { bottom: 10px; right: 12px; font-size: 9px; }
   }
@@ -1102,7 +1062,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge" data-i18n="badge">Версия 1.11 уже доступна</div>
+    <div class="hero-badge" data-i18n="badge">Версия 1.19 уже доступна</div>
     <h1><span data-i18n="heroTitle1">Мессенджер</span> <span class="gradient" data-i18n="heroTitle2">нового поколения</span></h1>
     <p data-i18n="heroSub">Nova Chat — быстрый, безопасный и красивый мессенджер для Windows. Шифрование, мгновенная доставка и удобный интерфейс в одном приложении.</p>
 
@@ -1213,7 +1173,7 @@
 <section class="section" id="reviews">
   <div class="section-title fade-in">
     <h2 data-i18n="revTitle">Что говорят пользователи</h2>
-    <p data-i18n="revSub">Более 10 000 человек уже общаются в Nova Chat.</p>
+    <p data-i18n="revSub">Проект только стартовал — стань одним из первых.</p>
   </div>
   <div class="reviews-grid">
     <div class="review-card fade-in">
@@ -1270,19 +1230,6 @@
       <span>💻 Windows 10/11</span>
       <span>📦 ~194 МБ</span>
       <span>🔐 <span data-i18n="checked">Проверено</span></span>
-    </div>
-
-    <div class="hash">
-      SHA-256: 3a7f9e1b2c4d5e6f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f
-    </div>
-
-    <div class="qr-block">
-      <div>
-        <h3 data-i18n="qrTitle">Скачай на телефон</h3>
-        <p data-i18n="qrSub">Отсканируй QR-код камерой</p>
-      </div>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://nova-chat.example.com/mobile&color=6c5ce7&bgcolor=ffffff"
-           alt="QR-код" loading="lazy">
     </div>
   </div>
 </section>
@@ -1502,7 +1449,7 @@
   const translations = {
     ru: {
       navScreens: 'Скриншоты', navFeatures: 'Возможности', navReviews: 'Отзывы', navDownload: 'Скачать',
-      badge: 'Версия 1.11 уже доступна',
+      badge: 'Версия 1.19 уже доступна',
       heroTitle1: 'Мессенджер', heroTitle2: 'нового поколения',
       heroSub: 'Nova Chat — быстрый, безопасный и красивый мессенджер для Windows. Шифрование, мгновенная доставка и удобный интерфейс в одном приложении.',
       dlBtn: 'Скачать Nova Chat', dlBtnSub: 'Windows • .exe • бесплатно',
@@ -1523,20 +1470,19 @@
       feat2t: 'Мгновенная доставка', feat2d: 'Оптимизированные серверы доставляют сообщения за миллисекунды, где бы вы ни находились.',
       feat3t: 'Красивый интерфейс', feat3d: 'Минималистичный дизайн с тёмной темой, плавными анимациями и полной адаптацией под ваш экран.',
       feat4t: 'Аудио и видео звонки', feat4d: 'Звоните в HD-качестве прямо из приложения. Групповые звонки до 20 участников бесплатно.',
-      feat5t: 'Обмен файлами', feat5d: 'Отправляйте файлы до 500 MБ. Фото, видео, документы — всё передаётся быстро и без сжатия.',
+      feat5t: 'Обмен файлами', feat5d: 'Отправляйте файлы до 2 ГБ. Фото, видео, документы — всё передаётся быстро и без сжатия.',
       feat6t: 'Тёмная тема', feat6d: 'Глаза не устают даже при долгом общении. Автоматическое переключение по времени суток.',
-      revTitle: 'Что говорят пользователи', revSub: 'Более 10 000 человек уже общаются в Nova Chat.',
+      revTitle: 'Что говорят пользователи', revSub: 'Проект только стартовал — стань одним из первых.',
       rev1: '"Мы сделали это"', rev1role: 'Дизайнер',
       rev2: '"Мы создали это"', rev2role: 'Разработчик',
       rev3: '"Nova лучший месенджер"', rev3role: 'Разработчик',
       dlTitle: 'Скачай Nova Chat', dlSub: 'Одна кнопка — и мессенджер нового поколения уже на твоём компьютере. Установка занимает меньше минуты.',
       checked: 'Проверено',
-      qrTitle: 'Скачай на телефон', qrSub: 'Отсканируй QR-код камерой',
       rights: 'Все права защищены.', privacy: 'Политика конфиденциальности', terms: 'Условия использования'
     },
     en: {
       navScreens: 'Screenshots', navFeatures: 'Features', navReviews: 'Reviews', navDownload: 'Download',
-      badge: 'Version 1.11 is out',
+      badge: 'Version 1.19 is out',
       heroTitle1: 'Next-gen', heroTitle2: 'messenger',
       heroSub: 'Nova Chat — a fast, secure and beautiful messenger for Windows. Encryption, instant delivery and a clean interface in one app.',
       dlBtn: 'Download Nova Chat', dlBtnSub: 'Windows • .exe • free',
@@ -1559,13 +1505,12 @@
       feat4t: 'Audio & video calls', feat4d: 'HD calls right from the app. Group calls up to 20 participants for free.',
       feat5t: 'File sharing', feat5d: 'Send files up to 2 GB. Photos, videos, documents — all transferred quickly and without compression.',
       feat6t: 'Dark theme', feat6d: 'No eye strain even during long chats. Auto-switch by time of day.',
-      revTitle: 'What users say', revSub: 'Over 10,000 people already chat on Nova.',
+      revTitle: 'What users say', revSub: 'The project just launched — be one of the first.',
       rev1: '"We made this"', rev1role: 'Designer',
       rev2: '"We created this"', rev2role: 'Developer',
       rev3: '"Nova is the best messenger"', rev3role: 'Developer',
       dlTitle: 'Download Nova Chat', dlSub: 'One click — and the next-gen messenger is on your computer. Installation takes less than a minute.',
       checked: 'Verified',
-      qrTitle: 'Get it on your phone', qrSub: 'Scan the QR code with your camera',
       rights: 'All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use'
     }
   };
