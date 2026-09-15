@@ -637,109 +637,209 @@
     line-height: 1.6;
   }
 
-  /* === СКРИНШОТЫ === */
-  .screenshots-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-  }
-
-  .screenshot {
-    position: relative;
-    aspect-ratio: 16/10;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
-    cursor: pointer;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(108, 92, 231, 0.25), rgba(164, 99, 242, 0.15));
+  /* === ВОЗМОЖНОСТИ (новая секция) === */
+  .features-showcase {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 12px;
-    color: #b8a9ff;
+    gap: 100px;
   }
 
-  .screenshot::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.5));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .screenshot:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 30px 60px -20px rgba(108,92,231,0.6);
-    border-color: rgba(108, 92, 231, 0.4);
-  }
-
-  .screenshot:hover::after { opacity: 1; }
-
-  .screenshot-icon { font-size: 44px; }
-  .screenshot-label { font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
-
-  .screenshot img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* === ВОЗМОЖНОСТИ === */
-  .features-grid {
+  .feature-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
   }
 
-  .feature-card {
-    padding: 32px 28px;
-    background: rgba(18, 25, 40, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 24px;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
+  .feature-row.reverse .feature-visual { order: -1; }
+
+  .feature-text h3 {
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    margin-bottom: 18px;
+    line-height: 1.15;
   }
 
-  .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, #6c5ce7, #a463f2, #4d7cff);
-    opacity: 0;
-    transition: opacity 0.3s;
+  .feature-text h3 .gradient {
+    background: linear-gradient(135deg, #a463f2, #6c5ce7, #4d7cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .feature-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(108, 92, 231, 0.35);
-    box-shadow: 0 24px 40px -20px rgba(108, 92, 231, 0.5);
+  .feature-text > p {
+    color: #a8b2cf;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 480px;
   }
-  .feature-card:hover::before { opacity: 1; }
 
-  .feature-icon {
-    width: 56px;
-    height: 56px;
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
     border-radius: 16px;
-    background: linear-gradient(135deg, rgba(108, 92, 231, 0.3), rgba(164, 99, 242, 0.2));
-    border: 1px solid rgba(108, 92, 231, 0.3);
+    background: rgba(18, 25, 40, 0.4);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s;
+  }
+
+  .feature-item:hover {
+    background: rgba(108, 92, 231, 0.1);
+    border-color: rgba(108, 92, 231, 0.3);
+    transform: translateX(6px);
+  }
+
+  .feature-check {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.35), rgba(164, 99, 242, 0.25));
+    border: 1px solid rgba(108, 92, 231, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    flex-shrink: 0;
+    color: #b8a9ff;
+    font-weight: 800;
   }
 
-  .feature-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
-  .feature-card p { color: #8e99b5; font-size: 14.5px; line-height: 1.6; }
+  .feature-item strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    color: #eef2ff;
+  }
+
+  .feature-item span {
+    font-size: 13.5px;
+    color: #8e99b5;
+    line-height: 1.5;
+  }
+
+  .feature-visual {
+    position: relative;
+    border-radius: 24px;
+    padding: 28px;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.12), rgba(164, 99, 242, 0.06));
+    border: 1px solid rgba(108, 92, 231, 0.25);
+    box-shadow: 0 30px 60px -30px rgba(108, 92, 231, 0.5);
+    overflow: hidden;
+  }
+
+  .feature-visual::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -60%;
+    width: 220%; height: 220%;
+    background: conic-gradient(from 0deg, transparent, rgba(108, 92, 231, 0.18), transparent 25%);
+    animation: rotate 14s linear infinite;
+    pointer-events: none;
+  }
+
+  .feature-visual > * { position: relative; z-index: 1; }
+
+  .visual-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .visual-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .visual-dot.red { background: #ff5f57; }
+  .visual-dot.yellow { background: #ffbd2e; }
+  .visual-dot.green { background: #28c840; }
+
+  .visual-content {
+    background: rgba(10, 15, 26, 0.7);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 22px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .visual-line {
+    height: 12px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(108, 92, 231, 0.4), rgba(164, 99, 242, 0.15));
+  }
+  .visual-line.short { width: 60%; }
+  .visual-line.tiny { width: 35%; }
+
+  .visual-msg {
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 80%;
+  }
+  .visual-msg.in {
+    background: rgba(30, 40, 60, 0.9);
+    align-self: flex-start;
+    color: #cdd5e8;
+    border-bottom-left-radius: 4px;
+  }
+  .visual-msg.out {
+    background: linear-gradient(135deg, #6c5ce7, #8a6cf0);
+    align-self: flex-end;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 6px 14px -6px rgba(108, 92, 231, 0.7);
+  }
+
+  .visual-shield {
+    width: 110px;
+    height: 110px;
+    margin: 10px auto 0;
+    border-radius: 26px;
+    background: linear-gradient(135deg, #6c5ce7, #a463f2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    box-shadow: 0 20px 50px -15px rgba(108, 92, 231, 0.9);
+    animation: mockupFloat 5s ease-in-out infinite;
+  }
+
+  .visual-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: center;
+    padding: 6px 14px;
+    background: rgba(46, 204, 113, 0.12);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #2ecc71;
+  }
+
+  @media (max-width: 900px) {
+    .features-showcase { gap: 70px; }
+    .feature-row { grid-template-columns: 1fr; gap: 36px; }
+    .feature-row.reverse .feature-visual { order: 0; }
+    .feature-text > p { max-width: none; }
+  }
 
   /* === ОТЗЫВЫ === */
   .reviews-grid {
@@ -1047,7 +1147,6 @@
   </div>
   <div class="nav-right">
     <div class="nav-links">
-      <a href="#screenshots" data-i18n="navScreens">Скриншоты</a>
       <a href="#features" data-i18n="navFeatures">Возможности</a>
       <a href="#reviews" data-i18n="navReviews">Отзывы</a>
       <a href="#download" data-i18n="navDownload">Скачать</a>
@@ -1079,8 +1178,7 @@
       </a>
     </div>
 
-    <div class="hero-meta">
-    </div>
+    <div class="hero-meta"></div>
   </div>
 
   <div class="hero-visual">
@@ -1097,7 +1195,6 @@
         <div class="msg out" data-i18n="msg2">Всё отлично! Дизайн почти готов</div>
         <div class="msg in" data-i18n="msg3">Отлично, скинь макеты!</div>
         <div class="msg out" data-i18n="msg4">Уже загрузил, посмотри на сайте Nova Chat</div>
-
       </div>
       <div class="mockup-input">
         <div class="mockup-input-field" data-i18n="msgPlaceholder">Напишите сообщение...</div>
@@ -1113,37 +1210,102 @@
     <h2 data-i18n="featTitle">Всё, что нужно для общения</h2>
     <p data-i18n="featSub">Nova Chat объединяет скорость, безопасность и удобство в одном приложении.</p>
   </div>
-  <div class="features-grid">
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🔒</div>
-      <h3 data-i18n="feat1t">End-to-End шифрование</h3>
-      <p data-i18n="feat1d">Все сообщения защищены сквозным шифрованием. Только вы и ваш собеседник видите переписку.</p>
+
+  <div class="features-showcase">
+
+    <!-- РЯД 1: Приватность и скорость -->
+    <div class="feature-row fade-in">
+      <div class="feature-text">
+        <h3><span data-i18n="featRow1Title1">Приватность</span> <span class="gradient" data-i18n="featRow1Title2">без компромиссов</span></h3>
+        <p data-i18n="featRow1Sub">Каждое сообщение защищено сквозным шифрованием. Ключи хранятся только у вас — сервер не может прочитать переписку.</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-check">🔒</div>
+            <div>
+              <strong data-i18n="f1a">End-to-End шифрование</strong>
+              <span data-i18n="f1aSub">Только вы и собеседник видите сообщения</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">⚡</div>
+            <div>
+              <strong data-i18n="f1b">Доставка за миллисекунды</strong>
+              <span data-i18n="f1bSub">Оптимизированные серверы по всему миру</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">🎨</div>
+            <div>
+              <strong data-i18n="f1c">Тёмная тема и плавность</strong>
+              <span data-i18n="f1cSub">Минималистичный дизайн без лишнего</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-visual">
+        <div class="visual-bar">
+          <span class="visual-dot red"></span>
+          <span class="visual-dot yellow"></span>
+          <span class="visual-dot green"></span>
+        </div>
+        <div class="visual-content">
+          <div class="visual-shield">🔒</div>
+          <div class="visual-badge">✓ <span data-i18n="encrypted">Зашифровано</span></div>
+          <div class="visual-line"></div>
+          <div class="visual-line short"></div>
+          <div class="visual-line tiny"></div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">⚡</div>
-      <h3 data-i18n="feat2t">Мгновенная доставка</h3>
-      <p data-i18n="feat2d">Оптимизированные серверы доставляют сообщения за миллисекунды, где бы вы ни находились.</p>
+
+    <!-- РЯД 2: Звонки и файлы -->
+    <div class="feature-row reverse fade-in">
+      <div class="feature-text">
+        <h3><span data-i18n="featRow2Title1">Общайтесь</span> <span class="gradient" data-i18n="featRow2Title2">как угодно</span></h3>
+        <p data-i18n="featRow2Sub">HD-звонки, обмен файлами до 2 ГБ и групповые чаты — всё внутри Nova Chat, без сторонних программ.</p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-check">📞</div>
+            <div>
+              <strong data-i18n="f2a">Аудио и видео звонки</strong>
+              <span data-i18n="f2aSub">HD-качество, групповые звонки до 20 человек</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">📁</div>
+            <div>
+              <strong data-i18n="f2b">Файлы до 2 ГБ</strong>
+              <span data-i18n="f2bSub">Фото, видео и документы без сжатия</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-check">🌙</div>
+            <div>
+              <strong data-i18n="f2c">Автотёмная тема</strong>
+              <span data-i18n="f2cSub">Переключение по времени суток</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-visual">
+        <div class="visual-bar">
+          <span class="visual-dot red"></span>
+          <span class="visual-dot yellow"></span>
+          <span class="visual-dot green"></span>
+        </div>
+        <div class="visual-content">
+          <div class="visual-msg in">Привет! Как дела с проектом Nova?</div>
+          <div class="visual-msg out">Всё отлично! Дизайн почти готов 🚀</div>
+          <div class="visual-msg in">Скинь макеты, посмотрю</div>
+          <div class="visual-msg out">Уже загрузил на сайт</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🎨</div>
-      <h3 data-i18n="feat3t">Красивый интерфейс</h3>
-      <p data-i18n="feat3d">Минималистичный дизайн с тёмной темой, плавными анимациями и полной адаптацией под ваш экран.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">📞</div>
-      <h3 data-i18n="feat4t">Аудио и видео звонки</h3>
-      <p data-i18n="feat4d">Звоните в HD-качестве прямо из приложения. Групповые звонки до 20 участников бесплатно.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">📁</div>
-      <h3 data-i18n="feat5t">Обмен файлами</h3>
-      <p data-i18n="feat5d">Отправляйте файлы до 2 ГБ. Фото, видео, документы — всё передаётся быстро и без сжатия.</p>
-    </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🌙</div>
-      <h3 data-i18n="feat6t">Тёмная тема</h3>
-      <p data-i18n="feat6d">Глаза не устают даже при долгом общении. Автоматическое переключение по времени суток.</p>
-    </div>
+
   </div>
 </section>
 
@@ -1260,7 +1422,7 @@
     });
   });
 
-  /* === 1. СЧЁТЧИК СКАЧИВАНИЙ === */
+  /* === СЧЁТЧИК СКАЧИВАНИЙ === */
   let downloads = parseInt(localStorage.getItem('nova_downloads') || '1247', 10);
   const dlCounter = document.getElementById('dlCounter');
 
@@ -1269,7 +1431,7 @@
   }
   updateDownloadCounter();
 
-  /* === 7. АНИМАЦИИ ПО СКРОЛЛУ === */
+  /* === АНИМАЦИИ ПО СКРОЛЛУ === */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1281,7 +1443,7 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  /* === 5. МОДАЛКА "СПАСИБО" === */
+  /* === МОДАЛКА "СПАСИБО" === */
   let thanksShown = false;
 
   function showThanksModal() {
@@ -1389,67 +1551,34 @@
     }, 2500);
   }
 
-  /* === ЛАЙТБОКС ДЛЯ СКРИНШОТОВ === */
-  document.querySelectorAll('.screenshot').forEach(shot => {
-    shot.addEventListener('click', () => {
-      const label = shot.querySelector('.screenshot-label')?.textContent || '';
-      const icon = shot.querySelector('.screenshot-icon')?.textContent || '🖼️';
-
-      const lb = document.createElement('div');
-      lb.className = 'lightbox';
-      lb.innerHTML = `
-        <button class="lightbox-close" aria-label="Закрыть">✕</button>
-        <div class="lightbox-content">
-          <div style="font-size:80px">${icon}</div>
-          <div>${label}</div>
-          <div style="font-size:13px;color:#7c87a3;font-weight:400;text-align:center;max-width:400px;">
-            Здесь будет полноэкранный скриншот приложения.<br>
-            Замени заглушку на свою картинку: &lt;img src="screen1.png"&gt;
-          </div>
-        </div>
-      `;
-      document.body.appendChild(lb);
-
-      const closeLb = () => {
-        lb.style.opacity = '0';
-        setTimeout(() => lb.remove(), 300);
-      };
-
-      lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
-      lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
-      document.addEventListener('keydown', function esc(e) {
-        if (e.key === 'Escape') { closeLb(); document.removeEventListener('keydown', esc); }
-      });
-    });
-  });
-
-  /* === 6. МУЛЬТИЯЗЫЧНОСТЬ === */
+  /* === МУЛЬТИЯЗЫЧНОСТЬ === */
   const translations = {
     ru: {
-      navScreens: 'Скриншоты', navFeatures: 'Возможности', navReviews: 'Отзывы', navDownload: 'Скачать',
+      navFeatures: 'Возможности', navReviews: 'Отзывы', navDownload: 'Скачать',
       badge: 'Версия 1.19 уже доступна',
       heroTitle1: 'Мессенджер', heroTitle2: 'нового поколения',
       heroSub: 'Nova Chat — быстрый, безопасный и красивый мессенджер для Windows. Шифрование, мгновенная доставка и удобный интерфейс в одном приложении.',
       dlBtn: 'Скачать Nova Chat', dlBtnSub: 'Windows • .exe • бесплатно',
       learnMore: 'Узнать больше',
-      meta1: 'Шифрование E2E', meta2: 'Мгновенная доставка', meta3: 'скачиваний',
       online: 'в сети',
       msg1: 'Привет! Как дела с проектом Nova?',
       msg2: 'Всё отлично! Дизайн почти готов 🚀',
       msg3: 'Отлично, скинь макеты!',
       msg4: 'Уже загрузил, посмотри в общем доступе',
       msgPlaceholder: 'Напишите сообщение...',
-      scrTitle: 'Посмотри, как это выглядит',
-      scrSub: 'Чистый интерфейс, тёмная тема, ничего лишнего.',
-      scr1: 'Главный экран', scr2: 'Список чатов', scr3: 'Видеозвонок',
       featTitle: 'Всё, что нужно для общения',
       featSub: 'Nova Chat объединяет скорость, безопасность и удобство в одном приложении.',
-      feat1t: 'End-to-End шифрование', feat1d: 'Все сообщения защищены сквозным шифрованием. Только вы и ваш собеседник видите переписку.',
-      feat2t: 'Мгновенная доставка', feat2d: 'Оптимизированные серверы доставляют сообщения за миллисекунды, где бы вы ни находились.',
-      feat3t: 'Красивый интерфейс', feat3d: 'Минималистичный дизайн с тёмной темой, плавными анимациями и полной адаптацией под ваш экран.',
-      feat4t: 'Аудио и видео звонки', feat4d: 'Звоните в HD-качестве прямо из приложения. Групповые звонки до 20 участников бесплатно.',
-      feat5t: 'Обмен файлами', feat5d: 'Отправляйте файлы до 2 ГБ. Фото, видео, документы — всё передаётся быстро и без сжатия.',
-      feat6t: 'Тёмная тема', feat6d: 'Глаза не устают даже при долгом общении. Автоматическое переключение по времени суток.',
+      featRow1Title1: 'Приватность', featRow1Title2: 'без компромиссов',
+      featRow1Sub: 'Каждое сообщение защищено сквозным шифрованием. Ключи хранятся только у вас — сервер не может прочитать переписку.',
+      f1a: 'End-to-End шифрование', f1aSub: 'Только вы и собеседник видите сообщения',
+      f1b: 'Доставка за миллисекунды', f1bSub: 'Оптимизированные серверы по всему миру',
+      f1c: 'Тёмная тема и плавность', f1cSub: 'Минималистичный дизайн без лишнего',
+      encrypted: 'Зашифровано',
+      featRow2Title1: 'Общайтесь', featRow2Title2: 'как угодно',
+      featRow2Sub: 'HD-звонки, обмен файлами до 2 ГБ и групповые чаты — всё внутри Nova Chat, без сторонних программ.',
+      f2a: 'Аудио и видео звонки', f2aSub: 'HD-качество, групповые звонки до 20 человек',
+      f2b: 'Файлы до 2 ГБ', f2bSub: 'Фото, видео и документы без сжатия',
+      f2c: 'Автотёмная тема', f2cSub: 'Переключение по времени суток',
       revTitle: 'Что говорят пользователи', revSub: 'Проект только стартовал — стань одним из первых.',
       rev1: '"Мы сделали это"', rev1role: 'Дизайнер',
       rev2: '"Мы создали это"', rev2role: 'Разработчик',
@@ -1459,30 +1588,31 @@
       rights: 'Все права защищены.', privacy: 'Политика конфиденциальности', terms: 'Условия использования'
     },
     en: {
-      navScreens: 'Screenshots', navFeatures: 'Features', navReviews: 'Reviews', navDownload: 'Download',
+      navFeatures: 'Features', navReviews: 'Reviews', navDownload: 'Download',
       badge: 'Version 1.19 is out',
       heroTitle1: 'Next-gen', heroTitle2: 'messenger',
       heroSub: 'Nova Chat — a fast, secure and beautiful messenger for Windows. Encryption, instant delivery and a clean interface in one app.',
       dlBtn: 'Download Nova Chat', dlBtnSub: 'Windows • .exe • free',
       learnMore: 'Learn more',
-      meta1: 'E2E encryption', meta2: 'Instant delivery', meta3: 'downloads',
       online: 'online',
       msg1: 'Hey! How is the Nova project going?',
       msg2: 'All great! Design is almost done 🚀',
       msg3: 'Nice, send me the mockups!',
       msg4: 'Already uploaded, check the shared folder',
       msgPlaceholder: 'Type a message...',
-      scrTitle: 'See how it looks',
-      scrSub: 'Clean interface, dark theme, nothing extra.',
-      scr1: 'Main screen', scr2: 'Chat list', scr3: 'Video call',
       featTitle: 'Everything you need to chat',
       featSub: 'Nova Chat combines speed, security and convenience in one app.',
-      feat1t: 'End-to-End encryption', feat1d: 'All messages are end-to-end encrypted. Only you and your contact see the conversation.',
-      feat2t: 'Instant delivery', feat2d: 'Optimized servers deliver messages in milliseconds, wherever you are.',
-      feat3t: 'Beautiful interface', feat3d: 'Minimalist design with dark theme, smooth animations and full screen adaptation.',
-      feat4t: 'Audio & video calls', feat4d: 'HD calls right from the app. Group calls up to 20 participants for free.',
-      feat5t: 'File sharing', feat5d: 'Send files up to 2 GB. Photos, videos, documents — all transferred quickly and without compression.',
-      feat6t: 'Dark theme', feat6d: 'No eye strain even during long chats. Auto-switch by time of day.',
+      featRow1Title1: 'Privacy', featRow1Title2: 'without compromise',
+      featRow1Sub: 'Every message is end-to-end encrypted. Keys stay with you — the server cannot read your chats.',
+      f1a: 'End-to-End encryption', f1aSub: 'Only you and your contact see messages',
+      f1b: 'Millisecond delivery', f1bSub: 'Optimized servers worldwide',
+      f1c: 'Dark theme & smoothness', f1cSub: 'Minimalist design, nothing extra',
+      encrypted: 'Encrypted',
+      featRow2Title1: 'Chat', featRow2Title2: 'any way you want',
+      featRow2Sub: 'HD calls, file sharing up to 2 GB and group chats — all inside Nova Chat, no third-party apps.',
+      f2a: 'Audio & video calls', f2aSub: 'HD quality, group calls up to 20 people',
+      f2b: 'Files up to 2 GB', f2bSub: 'Photos, videos and docs without compression',
+      f2c: 'Auto dark theme', f2cSub: 'Switches by time of day',
       revTitle: 'What users say', revSub: 'The project just launched — be one of the first.',
       rev1: '"We made this"', rev1role: 'Designer',
       rev2: '"We created this"', rev2role: 'Developer',
